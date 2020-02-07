@@ -1,3 +1,9 @@
+/*
+Group 2 B2B 
+Customer Class Implementation
+
+*/
+
 #include <iostream>
 #include <cmath>
 #include <iomanip>
