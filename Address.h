@@ -3,7 +3,8 @@ Group 2 B2B
 Address Class header
 
 */
-
+#include "Customer.h"
+#include "Product.h"
 #include <string>
 
 class Address
