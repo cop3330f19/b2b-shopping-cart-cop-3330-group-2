@@ -8,40 +8,32 @@ Customer Class Implementation
 #include <cmath>
 #include <iomanip>
 #include "Customer.h"
+#include "Address.h"
+#include "Product.h"
 
 using namespace std;
 
-class Customer
+Customer:: Customer(string cus_num, string cus_name, double credit) : 
+customerName(cus_name), customerNum(cus_name), lineOfCredit(credit)
 {
-private:
-    string customerNum;
-    string customerName;
-    double lineOfCredit;
-    //Address *corperateAddress;
-public:
-    Customer:: Customer(string cus_num, string cus_name, double credit) : 
-    customerName(cus_name), customerNum(cus_name), lineOfCredit(credit)
-    {
 
-    }
+}
 
-    Customer:: Customer()
-    {
+Customer:: Customer()
+{
 
-    }
+}
 
-    // Set customer name
-    void Customer:: setCustomerName(string cus_name) {    customerName = cus_name; }
-    // Set Customer number
+// Set customer name
+void Customer:: setCustomerName(string cus_name) {    customerName = cus_name; }
+// Set Customer number
     void Customer:: setCustomerNum(string cus_num) {    customerNum = cus_num; }
-    // Set Customer Credit
-    void Customer:: setCustomerCredit(double credit) {lineOfCredit = credit; }
+// Set Customer Credit
+void Customer:: setCustomerCredit(double credit) {lineOfCredit = credit; }
 
-    // Get customer name
-    string Customer:: getCustomerName(){  return  customerName; }
-    // Get Customer number
-    string Customer:: getCustomerNum() {  return customerNum; }
-    // Get Customer Credit Line
-    double Customer:: getCustomerCredit() {return lineOfCredit; }
-
-};
+// Get customer name
+string Customer:: getCustomerName(){  return  customerName; }
+// Get Customer number
+string Customer:: getCustomerNum() {  return customerNum; }
+// Get Customer Credit Line
+double Customer:: getCustomerCredit() {return lineOfCredit; }

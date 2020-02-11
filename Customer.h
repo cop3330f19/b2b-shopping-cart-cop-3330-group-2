@@ -3,8 +3,9 @@ Group 2 B2B
 Customer Class header
 
 */
-
+#include "Address.h"
 #include <string>
+#include "Product.h"
 
 
 class Customer
@@ -13,7 +14,7 @@ private:
     std::string customerNum;
     std::string customerName;
     double lineOfCredit;
-    //Address *corperateAddress;
+    Address *corperateAddress;
 public:
     Customer(std::string , std::string , double credit);
    
