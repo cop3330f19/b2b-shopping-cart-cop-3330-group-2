@@ -2,6 +2,14 @@
 Group 2 B2B 
 Customer Class header
 
+Group members:
+
+Zahir Cooper
+Eric Lampley
+Amani Muller
+Claressa Wilson
+
+Date last edit: 2/10/2020
 */
 #include "Address.h"
 #include <string>
