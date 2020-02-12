@@ -19,6 +19,14 @@ Date last edit: 2/10/2020
 #include "Customer.h"
 #include "Address.h"
 
+#ifndef ADDRESS
+#ifndef CUSTOMER
+#ifndef PRODUCT
+#endif
+#endif
+#endif
+
+
 using namespace std;
 
     // Product constructor which takes 4 arguments

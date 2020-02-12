@@ -15,6 +15,12 @@ Date last edit: 2/10/2020
 #include <string>
 #include "Product.h"
 
+#ifndef CUSTOMER_H
+#define CUSTOMER_H
+
+
+
+
 
 class Customer
 {
@@ -45,3 +51,5 @@ public:
     double getCustomerCredit();
 
 };
+
+#endif

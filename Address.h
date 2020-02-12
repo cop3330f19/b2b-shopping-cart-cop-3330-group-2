@@ -15,6 +15,12 @@ Date last edit: 2/10/2020
 #include "Product.h"
 #include <string>
 
+
+#ifndef ADDRESS_H
+#define ADDRESS_H
+
+
+
 class Address
 {
 private:
@@ -56,5 +62,5 @@ public:
     
 };
 
-
+#endif
 

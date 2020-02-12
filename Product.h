@@ -14,6 +14,10 @@ Date last edit: 2/10/2020
 
 #include <string>
 
+#ifndef PRODUCT_H
+#define PRODUCT_H
+
+
 class Product
 {
 private:
@@ -54,3 +58,4 @@ public:
 
 };
 
+#endif
