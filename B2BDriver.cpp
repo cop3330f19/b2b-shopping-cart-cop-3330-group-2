@@ -36,8 +36,8 @@ int main()
    string address, city, zipcode, state, street_address;
    string associate;
     
-   // global vector storing addresses
-   vector<string>customer_address;
+   //vector storing addresses
+   vector<string>customer_addresses;
 
    //opening file
    ifstream inF;
@@ -48,10 +48,7 @@ int main()
     
    //Address corperate address object
    Address cust_address[21];
-    
-   // Customer class pointer
-   Customer *corperateAddress;
-    
+
   for(int i = 0; i < 21; i++)
   {
       
@@ -72,21 +69,30 @@ int main()
     city = StringHelper::parse(address,',')[1];
     state = StringHelper::parse(address,',')[2];
     zipcode = StringHelper::parse(address,',')[3];
-      
-        
-    // Looks for customer address in vector and if found pointer uses it
-    if(find(customer_address.begin(),customer_address.end(),address)!= customer_address.end())
-    {
-        cout <<"\n We already have your address on file. ";
-        corperateAddress = &address;
-    }
-    else
-        // Adding customer address to vector
-         customer_address.push_back(address);
-      
+    
     identifier[i].setCustomerNum(customer_num);
     identifier[i].setCustomerName(customer_name);
     identifier[i].setCustomerCredit(creditLimit);
+
+
+
+        
+    // Looks for customer address in vector and if found pointer uses it
+    if(find(customer_addresses.begin(),customer_addresses.end(),street_address)!= customer_addresses.end())
+    {
+      for(int i = 0; i < customer_addresses.size(); i++)
+      {
+        if(customer_addresses[i] == street_address)
+        {
+          identifier[i].getCorperateAddress()-> setStreetAddress(customer_addresses[i]);
+          cout << identifier[i].getCorperateAddress()-> getStreetAddress() << endl;
+        }
+      }
+    }
+    else
+        // Adding customer address to vector
+         customer_addresses.push_back(street_address);
+      
   }    
 
 	cout << endl; return 0;

@@ -29,12 +29,14 @@ Date last edit: 2/10/2020
 
 using namespace std;
 
-Customer:: Customer(string cus_num, string cus_name, double credit) : 
+Customer:: Customer(string cus_num, string cus_name, double credit, string sa, string c, string s, string zc) : 
 customerName(cus_name), customerNum(cus_name), lineOfCredit(credit)
 {
-
+    
 }
 
+//Customer * asa (.....)
+//asa.corperateAddress->streetAddress
 Customer:: Customer()
 {
 
@@ -43,7 +45,7 @@ Customer:: Customer()
 // Set customer name
 void Customer:: setCustomerName(string cus_name) {    customerName = cus_name; }
 // Set Customer number
-    void Customer:: setCustomerNum(string cus_num) {    customerNum = cus_num; }
+void Customer:: setCustomerNum(string cus_num) {    customerNum = cus_num; }
 // Set Customer Credit
 void Customer:: setCustomerCredit(double credit) {lineOfCredit = credit; }
 
@@ -53,3 +55,8 @@ string Customer:: getCustomerName(){  return  customerName; }
 string Customer:: getCustomerNum() {  return customerNum; }
 // Get Customer Credit Line
 double Customer:: getCustomerCredit() {return lineOfCredit; }
+
+Address * Customer:: getCorperateAddress()
+{
+    return corperateAddress = new Address[21];
+}

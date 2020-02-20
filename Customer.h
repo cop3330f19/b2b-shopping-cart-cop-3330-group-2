@@ -30,11 +30,11 @@ private:
     double lineOfCredit;
     Address *corperateAddress;
 public:
-    Customer(std::string , std::string , double credit);
+    Customer(std::string , std::string , double credit, std::string, std::string, std::string, std::string);
    
 
     Customer();
-    
+    //
 
     // Set customer name
     void setCustomerName(std::string );
@@ -49,6 +49,8 @@ public:
     std:: string getCustomerNum();
     // Get Customer Credit Line
     double getCustomerCredit();
+    
+    Address * getCorperateAddress();
 
 };
 
