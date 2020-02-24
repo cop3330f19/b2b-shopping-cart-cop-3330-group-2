@@ -5,7 +5,7 @@ Eric Lampley
 Amani Muller
 Claressa Wilson
 
-Date last edit: 2/18/2020
+Date last edit: 2/24/2020
 */
 
 #include "StringHelper.h"
