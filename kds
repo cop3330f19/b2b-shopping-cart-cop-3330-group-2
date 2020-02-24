@@ -1,0 +1,18 @@
+// // Looks for customer address in vector and if found pointer uses it
+    // // if(find(customer_addresses.begin(),customer_addresses.end(),Address(street_address,city,state,zipcode))!= customer_addresses.end())
+    // // {
+    // //   for(int j = 0; j < customer_addresses.size(); j++)
+    // //   {
+    // //     if (IsSameAddress(Address , Address ))
+    // //     {
+    // //       identifier[i]->setCorperateAddress(&customer_addresses[j]);
+    // //       cout << identifier[i]->getCorperateAddress();
+    // //     }
+        
+    // //   }
+    // }
+    // else
+    //     // Adding customer address to vector
+    //     customer_addresses.push_back(temp);
+    //     identifier[i]->setCorperateAddress(&customer_addresses.back());
+    // }    

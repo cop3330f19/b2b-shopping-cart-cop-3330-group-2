@@ -12,12 +12,14 @@ Claressa Wilson
 Date last edit: 2/10/2020
 */
 
+#include "StringHelper.h"
 #include <iostream>
 #include <cmath>
 #include <iomanip>
 #include "Customer.h"
 #include "Address.h"
 #include "Product.h"
+#include <fstream>
 
 #ifndef ADDRESS
 #ifndef CUSTOMER
@@ -29,7 +31,7 @@ Date last edit: 2/10/2020
 
 using namespace std;
 
-Customer:: Customer(string cus_num, string cus_name, double credit, string sa, string c, string s, string zc) : 
+Customer:: Customer(string cus_num, string cus_name, double credit) : 
 customerName(cus_name), customerNum(cus_name), lineOfCredit(credit)
 {
     
@@ -56,7 +58,13 @@ string Customer:: getCustomerNum() {  return customerNum; }
 // Get Customer Credit Line
 double Customer:: getCustomerCredit() {return lineOfCredit; }
 
+void  Customer:: setCorperateAddress(Address * address)
+{
+    corperateAddress =  address;
+}
+
 Address * Customer:: getCorperateAddress()
 {
-    return corperateAddress = new Address[21];
+  return corperateAddress;
+
 }

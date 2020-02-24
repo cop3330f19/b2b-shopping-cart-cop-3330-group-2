@@ -18,10 +18,6 @@ Date last edit: 2/10/2020
 #ifndef CUSTOMER_H
 #define CUSTOMER_H
 
-
-
-
-
 class Customer
 {
 private:
@@ -30,7 +26,7 @@ private:
     double lineOfCredit;
     Address *corperateAddress;
 public:
-    Customer(std::string , std::string , double credit, std::string, std::string, std::string, std::string);
+    Customer(std::string , std::string , double credit);
    
 
     Customer();
@@ -51,6 +47,8 @@ public:
     double getCustomerCredit();
     
     Address * getCorperateAddress();
+    
+    void setCorperateAddress(Address *);
 
 };
 

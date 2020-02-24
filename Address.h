@@ -58,8 +58,7 @@ public:
 
     // Returns Zipcode as a string
     std::string getZipcode();
-    
-    
+
 };
 
 #endif
