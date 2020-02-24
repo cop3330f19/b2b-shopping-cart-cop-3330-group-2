@@ -9,7 +9,7 @@ Eric Lampley
 Amani Muller
 Claressa Wilson
 
-Date last edit: 2/10/2020
+Date last edit: 2/24/2020
 */
 
 #include "Product.h"

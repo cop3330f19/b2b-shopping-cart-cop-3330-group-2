@@ -5,7 +5,9 @@ Eric Lampley
 Amani Muller
 Claressa Wilson
 
-Date last edit: 2/18/2020
+Date last edit: 2/24/2020
+
+Purpose: This program is supposed to read customer data from a file and make a receipt.
 */
 
 #include "StringHelper.h"
@@ -136,7 +138,7 @@ int main()
     cout << "Associate: " << associate << endl;
     cout << "Customer Number: " << identifier[j].getCustomerNum() << endl;
     cout << "Customer: " << identifier[j].getCustomerName() << endl;
-    cout << "Address: " << identifier[j].getCorperateAddress() << " | " << c_address[j].getCity() << ", " << c_address[j].getState() 
+    cout << "Address: " << identifier[j].getCorperateAddress()->getStreetAddress() << " | " << c_address[j].getCity() << ", " << c_address[j].getState() 
     << " " << c_address[j].getZipcode() << endl;
     
     

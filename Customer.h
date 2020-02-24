@@ -9,7 +9,7 @@ Eric Lampley
 Amani Muller
 Claressa Wilson
 
-Date last edit: 2/10/2020
+Date last edit: 2/24/2020
 */
 #include "Address.h"
 #include <string>
@@ -46,7 +46,7 @@ public:
     // Get Customer Credit Line
     double getCustomerCredit();
     
-    Address * getCorperateAddress();
+   Address * getCorperateAddress();
     
     void setCorperateAddress(Address *);
 
