@@ -46,9 +46,11 @@ public:
     // Get Customer Credit Line
     double getCustomerCredit();
     
-   Address * getCorperateAddress();
+    Address * getCorperateAddress();
     
     void setCorperateAddress(Address *);
+
+    void const print();
 
 };
 

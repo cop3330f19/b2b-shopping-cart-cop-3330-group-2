@@ -9,7 +9,7 @@ Eric Lampley
 Amani Muller
 Claressa Wilson
 
-Date last edit: 2/24/2020
+Date last edit: 2/10/2020
 */
 
 #include <iomanip>
@@ -18,14 +18,6 @@ Date last edit: 2/24/2020
 #include "Product.h"
 #include "Customer.h"
 #include "Address.h"
-
-#ifndef ADDRESS
-#ifndef CUSTOMER
-#ifndef PRODUCT
-#endif
-#endif
-#endif
-
 
 using namespace std;
 
@@ -89,5 +81,23 @@ using namespace std;
     {
         return stockQuantity;
     }
+
+    void const Product:: print()
+    {
+        cout << "\n--------------------------------------------" << endl;
+        cout << "Item No" << setw(18) << "Description" << setw(10) << "Qty" << setw(9) << "Total" << endl;
+        cout << "--------------------------------------------" << endl << endl;
+        
+        cout << itemNo << setw(22) << description << setw(7) << stockQuantity << setw(10) << setprecision(2) 
+            << showpoint << fixed << price * stockQuantity << endl << endl;
+        
+       cout << "--------------------------------------------" << endl;
+       cout << "Total" << setw(38) << setprecision(2) << fixed << showpoint 
+         <<  price * stockQuantity << endl;
+       cout << "--------------------------------------------" << endl;
+      
+    }
+
+
 
 

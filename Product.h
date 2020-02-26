@@ -9,7 +9,7 @@ Eric Lampley
 Amani Muller
 Claressa Wilson
 
-Date last edit: 2/24/2020
+Date last edit: 2/25/2020
 */
 
 #include <string>
@@ -56,6 +56,8 @@ public:
     // Returns item Stock Quantity
     int getStockQuantity();
 
+    // Prints info
+    void const print();
 };
 
 #endif

@@ -68,3 +68,10 @@ Address * Customer:: getCorperateAddress()
   return corperateAddress;
 
 }
+
+void const Customer:: print()
+{
+    cout << "Customer Number: " << customerNum << endl;
+    cout << "Customer: " << customerName << endl;
+    cout << "Address: " << corperateAddress << " |" << endl; 
+}
