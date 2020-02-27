@@ -25,9 +25,10 @@ private:
     std::string description;
     double price;
     int stockQuantity;
+    int amountPurchased;
 public:
     // Product constructor which takes 4 arguments
-    Product(int,std::string,double,int);
+    Product(int,std::string,double,int,int);
 
     // Default Constructo
     Product();
@@ -58,6 +59,10 @@ public:
 
     // Prints info
     void const print();
+    
+    void setPurchaseAmount(int);
+    
+    int getPurchaseAmount();
 };
 
 #endif

@@ -24,12 +24,12 @@ Purpose: This program is supposed to read customer data from a file and make a r
 
 using namespace std;
 
-
 Customer identifier[21];
 Product  c_products[21];
 Address  c_address[21];
 
-// Global Variables so they can be used throughout program regardless of function
+
+// Global variables so they can be used throughout program regardless of function
 double creditLimit, price;
 string customer, customer_name,customer_num;
 string address, city, zipcode, state, street_address;
@@ -40,8 +40,10 @@ int itemNo, stockQuantity;
 // Map index which address pointer to point to within Address vector
 vector <int> mapAddress;
 
+
 //vector storing addresses
 vector<Address>customer_addresses;
+
 
 void assignVectoraddress()
 {
@@ -56,6 +58,7 @@ void assignVectoraddress()
   
 }
 
+
 string generateOrderNum()
 {
     // generates random number
@@ -66,6 +69,7 @@ string generateOrderNum()
     strstream >> oNum;
     return oNum;
 }
+
 
 int addAddress(string sa, string c, string s, string zip)
 {
@@ -83,6 +87,7 @@ int addAddress(string sa, string c, string s, string zip)
   return customer_addresses.size()-1;
   
 }
+
 
 void getCustomerFileInfo(int count , string file)
 {
@@ -105,6 +110,7 @@ void getCustomerFileInfo(int count , string file)
         
         identifier[i].setCustomerNum(customer_num);
         identifier[i].setCustomerName(customer_name);
+        identifier[i].setCustomerCredit(creditLimit);
         c_address[i].setState(state);
         c_address[i].setCity(city);
         c_address[i].setZipcode(zipcode);
@@ -114,6 +120,7 @@ void getCustomerFileInfo(int count , string file)
         
     }
 }
+
 
 void getProductFileInfo(int count , string file)
 {
@@ -136,6 +143,7 @@ void getProductFileInfo(int count , string file)
   }
 }
 
+
 int countLinesInFile(string f)
 {
   // Counts lines within file
@@ -153,31 +161,49 @@ int countLinesInFile(string f)
     file.close();
 }
 
-bool checkCustomerStuff(double credit, int price, int stock)
+
+bool checkCustomerStuff(double credit, int price, int stock, int amountBought)
 {
   // Checks to make sure customer items and credit are vaild
-    int creditLeftOver;
+   double creditLeftOver;
+   
+   int leftOverInventory = stock - amountBought;
     
-    creditLeftOver = credit - (price * stock);
+   creditLeftOver = credit - (price * amountBought);
     
-    if(creditLeftOver >= 0 && stock >= 0)
-    {
-        return true;
-    }
-    else if(creditLeftOver < 0)
-    {
-        return false;
-    }
-    else if(stock < 0)
-    {
-        return false;
-    }
+   if(creditLeftOver < 0 && leftOverInventory < 0)
+   {
+       return false;
+   }
+   else if(creditLeftOver > 0 && leftOverInventory < 0)
+   {
+       return false;
+   }
+   else if(creditLeftOver < 0 && leftOverInventory > 0)
+   {
+       return false;
+   }
+   else
+       true;
+   
 }
 
+int Finditem(int itemNum , int filecount)
+{
+    for(int l = 0; l < filecount; l++)
+    {
+        if(c_products[l].getItemNo() == itemNum)
+        {
+            return l;
+        }
+    }
+    return -1;
+}
   
-
 int main()
 { 
+  int numOfitem, amountPurchased,productIndex, itemNo;
+    
   int filecount = countLinesInFile("customers.dat");
     
   int productFilecount = countLinesInFile("inventory.dat");
@@ -186,29 +212,66 @@ int main()
     
   getProductFileInfo(productFilecount, "inventory.dat");
  
-  
     
-    
-  for(int j = 0; j < 21; j++)
+  for(int j = 0; j < filecount; j++)
   {
-    ifstream file(generateOrderNum());
-      
-     identifier[j].print();
-     if (checkCustomerStuff(identifier[j].getCustomerCredit(),c_products[j].getPrice(),c_products[j].getStockQuantity()))
-     {
-       cout << "Sorry you dont't have any credit left to buy them items " << endl;
-     }
-     else 
-     {
-       c_address[j].print();
-       c_products[j].print();
-       cout << "Remaining Credit" << setw(28) << setprecision(2) << fixed << creditLimit - (price * stockQuantity) 
-           << endl << endl;
-     }
- 
-  }
+        cout <<"Order Number: " << generateOrderNum() << endl;
+        identifier[j].print();
 
-	cout << endl; return 0;
+        cout << "Enter Associate Name: ";
+        cin >> associate;
+        cout << endl;
+      
+        cout << "Enter the number of item(s): ";
+        cin >> numOfitem;
+        cout << endl;
+        
+  
+        if(numOfitem == 0)
+        {
+            cout << "System shutting down..." << endl;
+            break;
+        }
+        else
+        {     
+            while(numOfitem > 0)
+            {
+              cout << "Enter the item number for the item(s): ";
+              cin >> itemNo;
+              productIndex = Finditem(itemNo,productFilecount);
+               if(productIndex == -1)
+                 {
+                     cout << "Item is not in database. Try again! " << endl;
+                     break;
+                 }
+                 else
+                 {     
+                
+                     std::cout << "Enter Number of " << c_products[productIndex].getDescription() << ": ";
+                     cin >> amountPurchased;
+                     c_products[productIndex].setPurchaseAmount(amountPurchased);
+                     std::cout << endl;
+                    
+                     numOfitem--;
+                   
+                     if (checkCustomerStuff(identifier[j].getCustomerCredit(),c_products[productIndex].getPrice(),c_products[productIndex].getStockQuantity()
+                        ,amountPurchased))
+                     {
+                       c_address[j].print();
+                       c_products[productIndex].print();
+                       cout << "Remaining Credit" << setw(28) << setprecision(2) << fixed << identifier[j].getCustomerCredit() - 
+                           (c_products[productFilecount].getPrice() * c_products[productIndex].getPurchaseAmount()) 
+                           << endl << endl;
+                     }
+                     else 
+                     {
+                      cout << "Sorry you dont't have any credit left to buy them items " << endl << endl;
+                     }
+             }
+  
+        }
+  
+  }
+	std::cout << endl; return 0;
     
 } // main
-

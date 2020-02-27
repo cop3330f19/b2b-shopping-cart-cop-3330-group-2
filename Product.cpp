@@ -22,8 +22,8 @@ Date last edit: 2/10/2020
 using namespace std;
 
     // Product constructor which takes 4 arguments
-    Product:: Product(int itemNum, string item_description ,double item_price ,int item_quantity): 
-    itemNo(itemNum), description(item_description), price(item_price) , stockQuantity(item_quantity)
+    Product:: Product(int itemNum, string item_description ,double item_price ,int item_quantity , int amount): 
+    itemNo(itemNum), description(item_description), price(item_price) , stockQuantity(item_quantity), amountPurchased(amount)
     {
 
     }
@@ -84,20 +84,20 @@ using namespace std;
 
     void const Product:: print()
     {
-        cout << "\n--------------------------------------------" << endl;
-        cout << "Item No" << setw(18) << "Description" << setw(10) << "Qty" << setw(9) << "Total" << endl;
-        cout << "--------------------------------------------" << endl << endl;
         
-        cout << itemNo << setw(22) << description << setw(7) << stockQuantity << setw(10) << setprecision(2) 
-            << showpoint << fixed << price * stockQuantity << endl << endl;
-        
-       cout << "--------------------------------------------" << endl;
-       cout << "Total" << setw(38) << setprecision(2) << fixed << showpoint 
-         <<  price * stockQuantity << endl;
-       cout << "--------------------------------------------" << endl;
+        cout << itemNo << setw(22) << description << setw(7) << amountPurchased << setw(10) << setprecision(2) 
+            << showpoint << fixed << price * amountPurchased << endl << endl;
+      
       
     }
 
+    void Product:: setPurchaseAmount(int amount)
+    {
+        amountPurchased = amount;
+    }
 
-
+    int Product:: getPurchaseAmount()
+    {
+        return amountPurchased;
+    }
 
