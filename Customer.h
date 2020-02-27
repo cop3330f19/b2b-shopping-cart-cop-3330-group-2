@@ -21,8 +21,9 @@ Date last edit: 2/24/2020
 class Customer
 {
 private:
-    std::string customerNum;
     std::string customerName;
+    std::string customerNum;
+ 
     double lineOfCredit;
     Address *corperateAddress;
 public:
