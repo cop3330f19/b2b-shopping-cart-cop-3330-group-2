@@ -25,9 +25,9 @@ class Address
 {
 private:
     std::string streetAddress;
-    std::string city;
-    std::string state; 
+    std::string city; 
     std::string zipCode;
+    std::string state; 
 public:
     // Constructor that initalizes parameters
     Address(std::string, std::string, std::string, std::string);
